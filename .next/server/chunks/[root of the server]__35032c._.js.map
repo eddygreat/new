@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 151, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/EDWARDM/Desktop/java/2025/nextjs-dashboard/app/query/route.ts"],"sourcesContent":[" import { db } from \"@vercel/postgres\";\r\n\r\n const client = await db.connect();\r\n\r\n async function listInvoices() {\r\n \tconst data = await client.sql`\r\n     SELECT invoices.amount, customers.name\r\n     FROM invoices\r\n     JOIN customers ON invoices.customer_id = customers.id\r\n     WHERE invoices.amount = 666;\r\n   `;\r\n\r\n \treturn data.rows;\r\n }\r\n\r\nexport async function GET() {\r\n  return Response.json({\r\n    message:\r\n      'Uncomment this file and remove this line. You can delete this file when you are finished.',\r\n  });\r\n   try {\r\n   \treturn Response.json(await listInvoices());\r\n   } catch (error) {\r\n   \treturn Response.json({ error }, { status: 500 });\r\n   }\r\n}\r\n"],"names":[],"mappings":";;;AAAC;AAAA;;AAEA,MAAM,SAAS,MAAM,yRAAA,CAAA,KAAE,CAAC,OAAO;AAE/B,eAAe;IACd,MAAM,OAAO,MAAM,OAAO,GAAG,CAAC;;;;;GAK7B,CAAC;IAEF,OAAO,KAAK,IAAI;AACjB;AAEM,eAAe;IACpB,OAAO,SAAS,IAAI,CAAC;QACnB,SACE;IACJ;;AAMF"}},
+    {"offset": {"line": 173, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
